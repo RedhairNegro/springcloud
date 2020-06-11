@@ -1,0 +1,26 @@
+server:
+  port: 6002
+spring:
+  application:
+    name: springbootConfig
+  #配置中心
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/redhairnegro/springcloudconfig.git
+          search-paths: blob
+          username: RedhairNegro
+          password: jh19951126
+          default-label: master
+          # basedir: ./configRepo/　　//本地缓存地址
+          force-pull: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/
+  instance:
+    preferIpAddress: true
+    # instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
